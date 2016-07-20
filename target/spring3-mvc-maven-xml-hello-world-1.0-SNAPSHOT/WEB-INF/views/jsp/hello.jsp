@@ -23,11 +23,11 @@
   <div class="container">
 	<h1>${title}</h1>
 	<p>
-		<c:if test="${not empty name}">
+		<c:if test="${not empty userid}">
 			Hello ${name}
 		</c:if>
  
-		<c:if test="${empty name}">
+		<c:if test="${empty userid}">
 			Welcome Welcome!
 		</c:if>
     </p>

@@ -22,12 +22,12 @@ public class HelloController {
 
 	}
 
-	@RequestMapping(value = "/hello/{userid}", method = RequestMethod.GET)
-	public ModelAndView hello(@PathVariable int id) {
+	@RequestMapping(value = "/hello/{userid:.+}", method = RequestMethod.GET)
+	public ModelAndView hello(@PathVariable("userid") int id) {
 		User user = UserService.findUserById(id);
 		ModelAndView model = new ModelAndView();
 		model.setViewName("hello");
-		model.addObject("msg", user.getName());
+		model.addObject("name", user.getName());
 
 		return model;
 	}

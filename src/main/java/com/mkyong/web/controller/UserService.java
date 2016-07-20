@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private static int maxN = 10;
+    private static int maxN = 100;
     private static User[] userList = new User[maxN];
 
     public UserService() {
