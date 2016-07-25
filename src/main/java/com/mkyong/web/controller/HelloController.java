@@ -1,5 +1,8 @@
 package com.mkyong.web.controller;
 
+
+import com.mkyong.web.model.User;
+import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

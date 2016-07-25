@@ -1,4 +1,4 @@
-package com.mkyong.web.controller;
+package com.mkyong.web.model;
 
 /**
  * Created by Angelica Yunshu Li on 7/20/2016.

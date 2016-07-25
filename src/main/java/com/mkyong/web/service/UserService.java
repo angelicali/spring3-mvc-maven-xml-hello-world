@@ -1,5 +1,6 @@
-package com.mkyong.web.controller;
+package com.mkyong.web.service;
 
+import com.mkyong.web.model.User;
 import org.springframework.stereotype.Service;
 
 /**
