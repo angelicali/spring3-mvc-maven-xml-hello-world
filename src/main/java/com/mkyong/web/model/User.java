@@ -1,11 +1,20 @@
 package com.mkyong.web.model;
 
-/**
- * Created by Angelica Yunshu Li on 7/20/2016.
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+
+    protected User() {}
 
     public User(int id, String name) {
         this.id = id;
