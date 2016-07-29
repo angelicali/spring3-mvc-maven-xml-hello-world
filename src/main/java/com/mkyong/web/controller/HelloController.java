@@ -2,8 +2,11 @@ package com.mkyong.web.controller;
 
 
 import com.mkyong.web.model.User;
+import com.mkyong.web.repository.UserRepository;
 import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@SpringBootApplication
 public class HelloController {
 
 	@Autowired		// dependency injection (wire the bean "UserService" in)
 	private UserService userService;
+
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
@@ -47,8 +52,13 @@ public class HelloController {
 	}
 
 	@RequestMapping(value="/test",method = RequestMethod.POST)
-	public @ResponseBody String handleRequest(@RequestParam String userid) {
-		return "userid:"+userid;
+	public @ResponseBody String handleRequest(@RequestParam int userid,@RequestParam String name, UserRepository userRepository) {
+		userRepository.save(new User(userid, name));
+		String results="";
+		for(User newuser: userRepository.findAll()){
+			results+=newuser.toString();
+		}
+		return results;
 	}
 
 

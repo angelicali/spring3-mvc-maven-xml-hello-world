@@ -12,7 +12,8 @@
 </head>
 <body>
     <form action="/test" method="post">
-        UserID: <input name="userid" type="text"/>
+        UserID: <input name="userid" type="number"/>
+        Name: <input name="name" type="text"/>
         <input type="submit"/>
     </form>
 </body>
