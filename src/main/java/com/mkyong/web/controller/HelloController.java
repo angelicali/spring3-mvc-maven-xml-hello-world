@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class HelloController {
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@RequestMapping("/")
 	@ResponseBody
