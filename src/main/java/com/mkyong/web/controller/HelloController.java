@@ -20,8 +20,8 @@ public class HelloController {
 	@RequestMapping("/")
 	@ResponseBody
 	public String Test(){
-		User user = new User(1234,"Angelica4321");
-		userService.saveUser(user);
+		//User user = new User(1234,"Angelica4321");
+		//userService.saveUser(user);
 		return "hello";
 
 	}

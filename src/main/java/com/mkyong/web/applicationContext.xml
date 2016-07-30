@@ -38,7 +38,7 @@
     <!-- 启用 annotation事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <jpa:repositories base-package="com.mkyong.web.repositfygjuory"/>
+    <jpa:repositories base-package="com.mkyong.web.service"/>
 
 
 
