@@ -2,21 +2,32 @@ package com.mkyong.web.controller;
 
 
 import com.mkyong.web.model.User;
-import com.mkyong.web.repository.UserRepository;
+import com.mkyong.web.service.UserRepository;
 import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@SpringBootApplication
+@EnableAutoConfiguration
 public class HelloController {
 
+	@Autowired
+	private UserService userService;
+
+	@RequestMapping("/")
+	@ResponseBody
+	public String Test(){
+		User user = new User(1234,"Angelica4321");
+		userService.saveUser(user);
+		return "hello";
+
+	}
+
+
+	/*
 	@Autowired		// dependency injection (wire the bean "UserService" in)
 	private UserService userService;
 
@@ -25,41 +36,40 @@ public class HelloController {
 	public String printWelcome(ModelMap model) {
 
 		model.addAttribute("message", "Spring 3 MVC Hello World");
-		return "hello";					// 'localhost:****/' loads hello.jsp with message="Spring 3 MVC Hello World"
+		return "hello";					// 'localhost:1234/' loads hello.jsp with message="Spring 3 MVC Hello World"
 
-	}
+	}*/
+	/*
 
 	@RequestMapping(value = "/hello/{userid:.+}", method = RequestMethod.GET)
 	public @ResponseBody ModelAndView hello(@PathVariable("userid") int id) {	// works the same with or without @ResponseBody
-		User user = userService.findUserById(id);
 		ModelAndView model = new ModelAndView();
 		model.setViewName("hello");
-		model.addObject("name", user.getName());
+		model.addObject("name", id);
 
 		return model;
 	}
 
 	@RequestMapping(value = "/json/{userid}", method = RequestMethod.GET)
 	public @ResponseBody User getUserInJSON(@PathVariable int userid){	// without @ResponseBody, it'll look for userid.jsp
-		User user = userService.findUserById(userid);
-		return user;
+
+		return null;
 	}
 
 	@RequestMapping(value="/test",method=RequestMethod.GET)			// when method is not specified, it handles everything
-	public String test(){		// with @ResponseBody, it returns the string "tester"
+	public String test(ModelMap model){		// with @ResponseBody, it returns the string "tester"
 								// 	without @ResponseBody, it looks for "tester.jsp" <- view resolver defined in spring-web-servlet.xml
+		model.put("users",userService.findAllUsers());
 		return "tester";
 	}
 
+
 	@RequestMapping(value="/test",method = RequestMethod.POST)
-	public @ResponseBody String handleRequest(@RequestParam int userid,@RequestParam String name, UserRepository userRepository) {
-		userRepository.save(new User(userid, name));
-		String results="";
-		for(User newuser: userRepository.findAll()){
-			results+=newuser.toString();
-		}
-		return results;
+	public @ResponseBody String handleRequest(@RequestParam int userid,@RequestParam String name) {
+		userService.saveUser(new User(userid,name));
+		return userService.findAllUsers();
 	}
+	*/
 
 
 }

@@ -38,8 +38,7 @@
     <!-- 启用 annotation事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- 配置Spring Data JPA扫描目录-->
-    <jpa:repositories base-package="com.mkyong.web.repository"/>
+    <jpa:repositories base-package="com.mkyong.web.repositfygjuory"/>
 
 
 
