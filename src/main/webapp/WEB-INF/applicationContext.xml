@@ -21,9 +21,7 @@
           http://www.springframework.org/schema/data/jpa
           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:annotation-config />
 
-    <context:component-scan base-package="com.mkyong.web"/>
 
     <!-- 定义实体管理器工厂 -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -38,8 +36,13 @@
     <!-- 启用 annotation事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <jpa:repositories base-package="com.mkyong.web.service"/>
+    <jpa:repositories base-package="com.mkyong.web.repository"/>
 
+    <context:component-scan base-package="com.mkyong.web">
+    	<context:exclude-filter type="regex" expression="com.mkyong.web.controller.*"/>
+        <context:exclude-filter type="regex" expression="com.mkyong.web.api.*"/>
+    </context:component-scan>
+    <context:annotation-config/>
 
 
 </beans>

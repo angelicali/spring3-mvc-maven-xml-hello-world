@@ -1,32 +1,29 @@
 package com.mkyong.web.controller;
 
 
-import com.mkyong.web.model.User;
-import com.mkyong.web.service.UserRepository;
+import com.mkyong.web.repository.UserRepository;
 import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 public class HelloController {
 
-	@Autowired
-	private UserRepository userService;
-
-	@RequestMapping("/")
-	@ResponseBody
-	public String Test(){
-		//User user = new User(1234,"Angelica4321");
-		//userService.saveUser(user);
-		return "hello";
-
-	}
+//
+//	@RequestMapping("/")
+//	@ResponseBody
+//	public String Test(){
+//		//User user = new User(1234,"Angelica4321");
+//		//userService.saveUser(user);
+//		return "hello";
+//
+//	}
 
 
-	/*
+
 	@Autowired		// dependency injection (wire the bean "UserService" in)
 	private UserService userService;
 
@@ -37,7 +34,7 @@ public class HelloController {
 		model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "hello";					// 'localhost:1234/' loads hello.jsp with message="Spring 3 MVC Hello World"
 
-	}*/
+	}
 	/*
 
 	@RequestMapping(value = "/hello/{userid:.+}", method = RequestMethod.GET)
