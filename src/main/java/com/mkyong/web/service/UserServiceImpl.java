@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Service("userService")
-public class UserServiceImpl implements UserService{
+@Service("UserService")
+public class UserServiceImpl implements CurdService{
 
     @Autowired
     private UserRepository userRepository;

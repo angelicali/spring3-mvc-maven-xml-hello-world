@@ -1,12 +1,11 @@
 package com.mkyong.web.controller;
 
-
-import com.mkyong.web.repository.UserRepository;
-import com.mkyong.web.service.UserService;
+import com.mkyong.web.service.CurdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
@@ -22,10 +21,8 @@ public class HelloController {
 //
 //	}
 
-
-
 	@Autowired		// dependency injection (wire the bean "UserService" in)
-	private UserService userService;
+	private CurdService userService;
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

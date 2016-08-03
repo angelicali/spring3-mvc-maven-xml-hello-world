@@ -7,7 +7,7 @@ import com.mkyong.web.model.User;
  */
 
 
-public interface UserService {
+public interface CurdService {
 
     void saveUser(User user);
 
