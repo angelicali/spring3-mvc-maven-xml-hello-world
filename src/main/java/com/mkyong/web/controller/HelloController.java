@@ -1,8 +1,7 @@
 package com.mkyong.web.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.mkyong.web.model.User;
-import com.mkyong.web.service.CurdService;
+import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,7 +23,7 @@ public class HelloController {
 //	}
 
 	@Autowired		// dependency injection (wire the bean "UserService" in)
-	private CurdService userService;
+	private UserService userService;
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

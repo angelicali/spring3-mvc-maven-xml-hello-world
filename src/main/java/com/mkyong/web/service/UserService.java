@@ -6,26 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+/**
+ * Created by Angelica Yunshu Li on 7/20/2016.
+ */
 
-
-@Service("UserService")
-public class UserServiceImpl implements CurdService{
+@Service
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
     //@TODO：Guava Lists
-    @Override
     @Transactional
     public String findAllUsers() {
         return userRepository.findAll().toString();
     }
 
-    @Override
     @Transactional
     public void saveUser(User user){
         userRepository.save(user);
     }
+
 
 }
