@@ -1,10 +1,13 @@
 package com.mkyong.web.service;
 
+import com.google.common.collect.Lists;
 import com.mkyong.web.model.User;
 import com.mkyong.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Angelica Yunshu Li on 7/20/2016.
@@ -18,8 +21,8 @@ public class UserService {
 
     //@TODO：Guava Lists
     @Transactional
-    public String findAllUsers() {
-        return userRepository.findAll().toString();
+    public List findAllUsers() {
+        return Lists.newArrayList(userRepository.findAll());
     }
 
     @Transactional

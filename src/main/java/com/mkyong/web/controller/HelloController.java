@@ -1,5 +1,6 @@
 package com.mkyong.web.controller;
 
+import com.google.common.collect.Lists;
 import com.mkyong.web.model.User;
 import com.mkyong.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 
 @Controller
@@ -60,7 +63,8 @@ public class HelloController {
 
 
 	@RequestMapping(value="/test",method = RequestMethod.POST)
-	public @ResponseBody String handleRequest(@RequestParam int userid, @RequestParam String name) {
+	public @ResponseBody
+	List handleRequest(@RequestParam int userid, @RequestParam String name) {
 		userService.saveUser(new User(userid,name));
 		System.out.println(name+" "+userid);
 		return userService.findAllUsers();
