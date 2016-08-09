@@ -8,15 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Huge Title</title>
+    <title>TITLE</title>
 </head>
 <body>
     <form action="/test" method="post">
         UserID: <input name="userid" type="number"/>
         Name: <input name="name" type="text"/>
-        <input type="submit"/>
+        <button type="submit">Register</button>
     </form>
-    <br>----------------------------------------<br>
+    <br>--------------------------------------------------------<br>
     All Users:<br>
     ${users}
 </body>

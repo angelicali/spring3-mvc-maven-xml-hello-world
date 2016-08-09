@@ -1,11 +1,13 @@
 package com.mkyong.web.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.mkyong.web.model.User;
 import com.mkyong.web.service.CurdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -32,10 +34,11 @@ public class HelloController {
 		return "hello";					// 'localhost:1234/' loads hello.jsp with message="Spring 3 MVC Hello World"
 
 	}
-	/*
+
 
 	@RequestMapping(value = "/hello/{userid:.+}", method = RequestMethod.GET)
-	public @ResponseBody ModelAndView hello(@PathVariable("userid") int id) {	// works the same with or without @ResponseBody
+	public @ResponseBody
+	ModelAndView hello(@PathVariable("userid") int id) {	// works the same with or without @ResponseBody
 		ModelAndView model = new ModelAndView();
 		model.setViewName("hello");
 		model.addObject("name", id);
@@ -58,11 +61,12 @@ public class HelloController {
 
 
 	@RequestMapping(value="/test",method = RequestMethod.POST)
-	public @ResponseBody String handleRequest(@RequestParam int userid,@RequestParam String name) {
+	public @ResponseBody String handleRequest(@RequestParam int userid, @RequestParam String name) {
 		userService.saveUser(new User(userid,name));
+		System.out.println(name+" "+userid);
 		return userService.findAllUsers();
 	}
-	*/
+
 
 
 }
