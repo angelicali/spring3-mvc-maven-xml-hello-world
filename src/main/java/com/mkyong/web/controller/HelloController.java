@@ -63,8 +63,7 @@ public class HelloController {
 
 
 	@RequestMapping(value="/test",method = RequestMethod.POST)
-	public @ResponseBody
-	List handleRequest(@RequestParam int userid, @RequestParam String name) {
+	public @ResponseBody List handleRequest(@RequestParam int userid, @RequestParam String name) {
 		userService.saveUser(new User(userid,name));
 		System.out.println(name+" "+userid);
 		return userService.findAllUsers();
