@@ -50,8 +50,8 @@ public class HelloController {
 
 	@RequestMapping(value = "/json/{userid}", method = RequestMethod.GET)
 	public @ResponseBody User getUserInJSON(@PathVariable int userid){	// without @ResponseBody, it'll look for userid.jsp
-
-		return null;
+		User user = userService.findOne(userid);
+		return user;
 	}
 
 	@RequestMapping(value="/test",method=RequestMethod.GET)			// when method is not specified, it handles everything
@@ -65,7 +65,7 @@ public class HelloController {
 	@RequestMapping(value="/test",method = RequestMethod.POST)
 	public @ResponseBody List handleRequest(@RequestParam int userid, @RequestParam String name) {
 		userService.saveUser(new User(userid,name));
-		System.out.println(name+" "+userid);
+		System.out.println(name + " " + userid);
 		return userService.findAllUsers();
 	}
 

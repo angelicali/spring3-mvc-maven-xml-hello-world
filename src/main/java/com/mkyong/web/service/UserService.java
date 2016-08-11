@@ -30,5 +30,10 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
+    public User findOne(Integer id){
+        return userRepository.findOne(id);
+    }
+
 
 }
